@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".view.view.RegisterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="50dp"
+            tools:context=".view.view.RegisterActivity">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="254dp"
+                android:layout_marginBottom="29dp"
+                app:layout_constraintBottom_toTopOf="@+id/txtnombre"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/p0"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="69dp"
+                android:layout_marginEnd="70dp"
+                android:background="#C9FCAED5"
+                android:fontFamily="cursive"
+                android:text="MyCuisine"
+                android:textSize="70dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="272dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="69dp"
+                android:background="#C9FCAED5"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text="Registrate aqui"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <EditText
+                android:id="@+id/txtnombre"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="152dp"
+                android:layout_marginEnd="11dp"
+                android:background="#C9FCAED5"
+                android:ems="10"
+                android:fontFamily="casual"
+                android:hint="Nombre y apellidos"
+                android:inputType="textPersonName"
+                android:paddingStart="5dp"
+                android:textColorHint="#E9000000"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <EditText
+                android:id="@+id/txtemail"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="11dp"
+                android:background="#C9FCAED5"
+                android:ems="10"
+                android:fontFamily="casual"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="5dp"
+                android:textColorHint="#E9000000"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtnombre" />
+
+            <EditText
+                android:id="@+id/txtpassword"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="11dp"
+                android:background="#C9FCAED5"
+                android:ems="10"
+                android:fontFamily="casual"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:paddingStart="5dp"
+                android:textColorHint="#E9000000"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtemail" />
+
+            <Button
+                android:id="@+id/buttoncrear"
+                android:layout_width="261dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="95dp"
+                android:background="@drawable/btn_rounded"
+                android:fontFamily="cursive"
+                android:text="Crear cuenta"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtpassword" />
+
+            <ImageButton
+                android:id="@+id/btnfleizq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="42dp"
+                android:layout_marginBottom="54dp"
+                android:background="#C9FCAED5"
+                app:layout_constraintBottom_toTopOf="@+id/txtnombre"
+                app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                app:srcCompat="@drawable/flecaizq" />
+
+            <ImageButton
+                android:id="@+id/btnfledere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="42dp"
+                android:layout_marginBottom="54dp"
+                android:background="#C9FCAED5"
+                app:layout_constraintBottom_toTopOf="@+id/txtnombre"
+                app:layout_constraintStart_toEndOf="@+id/btnfleizq"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                app:srcCompat="@drawable/flechadere" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

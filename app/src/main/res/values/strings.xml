@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyCuisine</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_recipes">RecipesActivity</string>
+    <string name="title_activity_recipes_acivity">RecipesAcivity</string>
+
+    <string-array name="list_diff">
+        <item>Selecccione una dificultad</item>
+        <item>Facil</item>
+        <item>Medio</item>
+        <item>Dificil</item>
+    </string-array>
+</resources>

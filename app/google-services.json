@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "120616470695",
+    "firebase_url": "https://mycuisine-adcb1.firebaseio.com",
+    "project_id": "mycuisine-adcb1",
+    "storage_bucket": "mycuisine-adcb1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120616470695:android:4d55d75bee29d55332f382",
+        "android_client_info": {
+          "package_name": "net.azarquiel.mycuisine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120616470695-oaed3ua4u6pm49a1cib0gcgiuccc4bar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.azarquiel.mycuisine",
+            "certificate_hash": "156c4615b24c3efc7b3a0ff1c702235fc9781b77"
+          }
+        },
+        {
+          "client_id": "120616470695-c7lk793o72i29rrb7hics12843pe9knv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdA-ZuD7zacX7beqabcYhU6uA69DsldYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120616470695-c7lk793o72i29rrb7hics12843pe9knv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

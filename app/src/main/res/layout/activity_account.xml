@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/account"
+    tools:context=".view.view.Account">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/account"
+            android:paddingBottom="50dp"
+            tools:context=".view.view.Account">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="301dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="55dp"
+                android:fontFamily="cursive"
+                android:gravity="center"
+                android:text="Mi Cuenta"
+                android:textSize="48sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="145dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="146dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_imageacc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/p0"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtnombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btncambiar" />
+
+            <Button
+                android:id="@+id/btncambiar"
+                android:layout_width="198dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="106dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="107dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="Cambiar imagen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+            <Button
+                android:id="@+id/btneliminar"
+                android:layout_width="198dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="106dp"
+                android:layout_marginTop="65dp"
+                android:layout_marginEnd="107dp"
+                android:background="@drawable/btneliminar"
+                android:text="Eliminar cuenta"
+                android:textColor="#E8FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnactualizar" />
+
+            <Button
+                android:id="@+id/btnactualizar"
+                android:layout_width="198dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="106dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="107dp"
+                android:background="@drawable/btn_rounded"
+                android:text="Actualizar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtnombre" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
