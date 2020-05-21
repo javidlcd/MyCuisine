@@ -17,15 +17,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.view.RecetaDetalle"></activity>
-        <activity android:name=".view.view.NewRecipeActivity" />
-        <activity android:name=".view.view.Account" />
-        <activity android:name=".view.view.RegisterActivity" />
+        <activity android:name=".view.view.RecetaDetalle" android:windowSoftInputMode="stateVisible|adjustPan"  android:label="@string/app_name"></activity>
+        <activity android:name=".view.view.NewRecipeActivity" android:windowSoftInputMode="stateVisible|adjustPan"  android:label="@string/app_name"/>
+        <activity android:name=".view.view.Account"  android:windowSoftInputMode="stateVisible|adjustPan" android:label="@string/app_name"/>
+        <activity android:name=".view.view.RegisterActivity" android:windowSoftInputMode="stateVisible|adjustPan"  android:label="@string/app_name" />
         <activity
             android:name=".view.view.RecipesAcivity"
-            android:label="@string/title_activity_recipes_acivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="MyCuisine"
+            android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity
+            android:windowSoftInputMode="stateVisible|adjustPan"
             android:name=".view.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">

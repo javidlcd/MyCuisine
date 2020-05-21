@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         db=FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
         btnlogin.setOnClickListener{login()}
