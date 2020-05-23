@@ -155,11 +155,14 @@ class NewRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
                         hint = "Ingrediente y peso"
                     }
                     positiveButton("Aceptar") {
+                        if(etIngrediente.length()!=0)
                        ingredientes.add(etIngrediente.text.toString())
                     }
                     negativeButton("Añadir otro"){
-                        ingredientes.add(etIngrediente.text.toString())
-                        dialogoingredientes()
+                        if(etIngrediente.length()!=0) {
+                            ingredientes.add(etIngrediente.text.toString())
+                            dialogoingredientes()
+                        }
 
                     }
                 }

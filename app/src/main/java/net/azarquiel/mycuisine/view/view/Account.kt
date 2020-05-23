@@ -34,7 +34,7 @@ class Account : AppCompatActivity() {
         btncambiar.setOnClickListener{cambiarimg()}
         btneliminar.setOnClickListener{deleteaccount()}
         btnactualizar.setOnClickListener{actualizar()}
-        refrescar()
+        refrescar(imgcount)
 
     }
 
@@ -105,11 +105,9 @@ class Account : AppCompatActivity() {
     private fun actualizar() {
         val img = db.collection("users").document("${user.uid}")
 
-
-        img
-            .update("img", imgcount)
+        img.update("img", imgcount)
             .addOnSuccessListener { Log.d("", "DocumentSnapshot successfully updated!") }
-            .addOnFailureListener { e -> Log.w("", "Error updating document", e) }
+            .addOnFailureListener { e -> Log.e("", "Error updating document", e) }
 
 
     }
@@ -119,12 +117,12 @@ class Account : AppCompatActivity() {
         if(imgcount>12){
             imgcount=0
         }
-        refrescar()
+        refrescar(imgcount)
     }
 
-    private fun refrescar(){
+    fun refrescar(img:Int){
 
-        when(imgcount){
+        when(img){
             0->profile_imageacc.setImageResource(R.drawable.p0)
             1->profile_imageacc.setImageResource(R.drawable.p1)
             2->profile_imageacc.setImageResource(R.drawable.p2)

@@ -11,14 +11,15 @@ import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.rowrecipe.view.*
 import net.azarquiel.mycuisine.view.model.Receta
 import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.rowingredientes.view.*
 import net.azarquiel.mycuisine.view.view.NewRecipeActivity
 
 
-class CustomAdapter(val context: Context,
+class DetailAdapter(val context: Context,
                     val layout: Int
-                    ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+                    ) : RecyclerView.Adapter<DetailAdapter.ViewHolder>() {
 
-   private  var dataList :ArrayList<Receta> = ArrayList()
+   private  var dataList :ArrayList<String> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -35,33 +36,18 @@ class CustomAdapter(val context: Context,
         return dataList.size
     }
 
-    internal fun setRecetas(Recetas: ArrayList<Receta>) {
-        this.dataList = Recetas
+    internal fun setIngredientes(Ingredientes: ArrayList<String>) {
+        this.dataList = Ingredientes
         notifyDataSetChanged()
     }
 
 
 
     class ViewHolder(viewlayout: View, val context: Context) : RecyclerView.ViewHolder(viewlayout) {
-        fun bind(dataItem: Receta){
+        fun bind(dataItem: String){
 
-            // itemview es el item de diseño
-            // al que hay que poner los datos del objeto dataItem
-
-            val storage = FirebaseStorage.getInstance()
-            val storageRef = storage.reference
-            storageRef.child("images/${dataItem.img}.jpg").downloadUrl.addOnSuccessListener {
-
-                Glide.with(itemView).load(it).into(itemView.ivReceta)
-            }.addOnFailureListener {
-                // Handle any errors
-            }
-            itemView.txtNombreRecipe.text=dataItem.nombre
-            itemView.txtDificultad.text=dataItem.dificultad
-
-
+            itemView.txtIngredienterv.text=dataItem
             itemView.tag = dataItem
-
         }
 
     }

@@ -8,14 +8,15 @@
     android:layout_marginTop="5dp"
     android:layout_marginEnd="2dp"
     android:layout_marginBottom="5dp"
-    android:orientation="vertical"
     android:onClick="ClickRow"
-    app:cardBackgroundColor="#482A91E7"
+    android:orientation="vertical"
+    app:cardBackgroundColor="#79FFFFFF"
     app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bgcardview">
 
         <RelativeLayout
             android:id="@+id/relativeLayout"

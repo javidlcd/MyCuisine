@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             alert("version 1.0") {
                title="MyCuisine"
-                yesButton { toast("Creador Javi") }
+                yesButton { }
 
             }.show()
 

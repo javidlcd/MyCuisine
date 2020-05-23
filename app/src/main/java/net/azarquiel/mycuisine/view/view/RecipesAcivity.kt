@@ -21,12 +21,26 @@ import net.azarquiel.mycuisine.view.MainActivity
 import net.azarquiel.mycuisine.view.adapter.CustomAdapter
 import net.azarquiel.mycuisine.view.model.Receta
 import net.azarquiel.mycuisine.view.model.User
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.noButton
+import org.jetbrains.anko.yesButton
 import kotlin.math.log
 
 
-class RecipesAcivity : AppCompatActivity() {
+class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
+    override fun onQueryTextChange(query: String): Boolean {
+        val original = ArrayList(recetas)
+        adapter.setRecetas(ArrayList(original.filter { receta -> receta.nombre.toUpperCase().contains(query.toUpperCase())}))
+        return false
+    }
+
+    override fun onQueryTextSubmit(text: String): Boolean {
+        return false
+    }
+
 
     lateinit var db: FirebaseFirestore
+    private lateinit var searchView:SearchView
     private var recetas: ArrayList<Receta> = ArrayList()
     private lateinit var user: User
     private lateinit var adapter:CustomAdapter
@@ -143,7 +157,12 @@ class RecipesAcivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
+
         menuInflater.inflate(R.menu.menu_recipes, menu)
+        val searchItem = menu.findItem(R.id.search)
+        searchView = searchItem.actionView as SearchView
+        searchView.setQueryHint("Search...")
+        searchView.setOnQueryTextListener(this)
 
 
 
@@ -155,7 +174,11 @@ class RecipesAcivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         var id= item.getItemId()
         if(id==R.id.logout){
-           logout()
+            alert("¿Estas seguro de que quieres salir de la cuenta?") {
+
+                yesButton {logout() }
+                noButton { }
+            }.show()
         }else if(id==R.id.account){
             val intent = Intent(this, Account::class.java)
             intent.putExtra("user",user)
