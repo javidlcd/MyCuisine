@@ -20,6 +20,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/txtNombreUserDetalle"
+                android:layout_width="249dp"
+                android:layout_height="83dp"
+                android:layout_marginStart="37dp"
+                android:layout_marginBottom="100dp"
+                android:fontFamily="casual"
+                android:text="TextView"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/relativeLayout2" />
+
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
@@ -161,6 +175,24 @@
                 android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtpasosdetail" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="93dp"
+                android:layout_height="88dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnmgs">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivUserDetalle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+            </RelativeLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

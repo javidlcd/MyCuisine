@@ -21,6 +21,7 @@ import org.jetbrains.anko.toast
 class RecetaDetalle : AppCompatActivity() {
     private lateinit var adapter:DetailAdapter
     private lateinit var receta:Receta
+    private lateinit var usuario:User
    private lateinit var storage:FirebaseStorage
    private lateinit var db: FirebaseFirestore
     private var voto:Boolean=false
@@ -34,6 +35,7 @@ class RecetaDetalle : AppCompatActivity() {
         db= FirebaseFirestore.getInstance()
         storage= FirebaseStorage.getInstance()
         receta=intent.getSerializableExtra("receta") as Receta
+        usuario=intent.getSerializableExtra("user") as User
         initRV()
         inyectarInformacion()
         btnmgs.setOnClickListener { ilike() }
@@ -89,6 +91,25 @@ class RecetaDetalle : AppCompatActivity() {
         txtdificultaddetalle.text=receta.dificultad
         btnmgs.text=receta.likes.toString()
         btnnomgs.text=receta.dislikes.toString()
+
+        when(usuario.img.toInt()){
+            0->ivUserDetalle.setImageResource(R.drawable.p0)
+            1->ivUserDetalle.setImageResource(R.drawable.p1)
+            2->ivUserDetalle.setImageResource(R.drawable.p2)
+            3->ivUserDetalle.setImageResource(R.drawable.p3)
+            4->ivUserDetalle.setImageResource(R.drawable.p4)
+            5->ivUserDetalle.setImageResource(R.drawable.p5)
+            6->ivUserDetalle.setImageResource(R.drawable.p6)
+            7->ivUserDetalle.setImageResource(R.drawable.p7)
+            8->ivUserDetalle.setImageResource(R.drawable.p8)
+            9->ivUserDetalle.setImageResource(R.drawable.p9)
+            10->ivUserDetalle.setImageResource(R.drawable.p10)
+            11->ivUserDetalle.setImageResource(R.drawable.p11)
+            12->ivUserDetalle.setImageResource(R.drawable.p12)
+
+        }
+        txtNombreUserDetalle.text=usuario.nombre
+
         val storageRef = storage.reference
         storageRef.child("images/${receta.img}.jpg").downloadUrl.addOnSuccessListener {
 

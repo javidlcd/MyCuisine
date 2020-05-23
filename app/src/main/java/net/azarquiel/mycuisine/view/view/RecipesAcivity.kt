@@ -21,9 +21,7 @@ import net.azarquiel.mycuisine.view.MainActivity
 import net.azarquiel.mycuisine.view.adapter.CustomAdapter
 import net.azarquiel.mycuisine.view.model.Receta
 import net.azarquiel.mycuisine.view.model.User
-import org.jetbrains.anko.alert
-import org.jetbrains.anko.noButton
-import org.jetbrains.anko.yesButton
+import org.jetbrains.anko.*
 import kotlin.math.log
 
 
@@ -40,6 +38,8 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
 
     lateinit var db: FirebaseFirestore
+    private var usuarios:ArrayList<User> = ArrayList()
+    private lateinit var usuarioReceta:User
     private lateinit var searchView:SearchView
     private var recetas: ArrayList<Receta> = ArrayList()
     private lateinit var user: User
@@ -52,6 +52,7 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         db = FirebaseFirestore.getInstance()
         auth=FirebaseAuth.getInstance()
         getUser()
+        getUsers()
         setListener()
         setContentView(R.layout.activity_recipes_acivity)
         setSupportActionBar(toolbar)
@@ -146,10 +147,53 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     fun ClickRow(v: View){
         val recetapulsada = v.tag as Receta
         val intent = Intent(this, RecetaDetalle::class.java)
-        intent.putExtra("receta", recetapulsada)
+        usuarios.forEach {
+            if (it.uid==recetapulsada.user){
+                usuarioReceta=it
+
+            }
+        }
+
+                intent.putExtra("receta", recetapulsada)
+                intent.putExtra("user",usuarioReceta)
+
+
+
+
         startActivity(intent)
 
     }
+    private fun getUsers() {
+        val docRef = db.collectionGroup("users")
+        docRef.addSnapshotListener { snapshot, e ->
+            if (e != null) {
+                Log.w("", "Listen failed.", e)
+                return@addSnapshotListener
+            }
+
+            if (snapshot != null && !snapshot.isEmpty) {
+                parseUseRecipe(snapshot.documents)
+
+            } else {
+                Log.d("", "Current data: null")
+            }
+        }
+    }
+    private fun parseUseRecipe(documents: List<DocumentSnapshot>) {
+
+        documents.forEach { d ->
+
+            val nombre = d["nombre"] as String
+            val img = d["img"] as Long
+            val uid = d["uid"] as String
+
+            usuarios.add(User(nombre=nombre,img = img,uid = uid))
+        }
+
+
+
+    }
+
 
 
 
