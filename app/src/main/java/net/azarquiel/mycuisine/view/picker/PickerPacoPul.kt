@@ -2,7 +2,7 @@ package net.azarquiel.mycuisine.view.picker
 
 import android.Manifest
 import android.app.Activity
-import android.app.AlertDialog
+
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -22,7 +22,6 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.net.URI
 import java.util.*
 
 class PickerPacoPul(var activity: Activity ) {

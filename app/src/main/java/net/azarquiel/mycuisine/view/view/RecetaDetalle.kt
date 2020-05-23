@@ -2,17 +2,13 @@ package net.azarquiel.mycuisine.view.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.google.firebase.firestore.DocumentSnapshot
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_receta_detalle.*
-import kotlinx.android.synthetic.main.content_recipes_acivity.*
-import kotlinx.android.synthetic.main.rowrecipe.view.*
 import net.azarquiel.mycuisine.R
-import net.azarquiel.mycuisine.view.adapter.CustomAdapter
 import net.azarquiel.mycuisine.view.adapter.DetailAdapter
 import net.azarquiel.mycuisine.view.model.Receta
 import net.azarquiel.mycuisine.view.model.User

@@ -8,11 +8,9 @@ import android.util.Log
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_account.*
 import kotlinx.android.synthetic.main.activity_account.txtnombre
-import kotlinx.android.synthetic.main.activity_register.*
 import net.azarquiel.mycuisine.R
 import net.azarquiel.mycuisine.view.MainActivity
 import net.azarquiel.mycuisine.view.model.User

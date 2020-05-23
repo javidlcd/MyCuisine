@@ -9,15 +9,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import android.widget.Toast
-import androidx.core.view.get
-import com.google.android.gms.dynamic.IFragmentWrapper
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_new_recipe.*
-import kotlinx.android.synthetic.main.activity_register.*
 import net.azarquiel.mycuisine.R
 import net.azarquiel.mycuisine.view.picker.PickerPacoPul
 import org.jetbrains.anko.*

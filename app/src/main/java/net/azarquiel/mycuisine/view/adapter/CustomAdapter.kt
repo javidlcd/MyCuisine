@@ -1,7 +1,7 @@
 package net.azarquiel.mycuisine.view.adapter
 
 import android.content.Context
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +10,6 @@ import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.rowrecipe.view.*
 import net.azarquiel.mycuisine.view.model.Receta
-import com.google.firebase.storage.StorageReference
-import net.azarquiel.mycuisine.view.view.NewRecipeActivity
 
 
 class CustomAdapter(val context: Context,
@@ -56,6 +54,7 @@ class CustomAdapter(val context: Context,
             }.addOnFailureListener {
                 // Handle any errors
             }
+
             itemView.txtNombreRecipe.text=dataItem.nombre
             itemView.txtDificultad.text=dataItem.dificultad
 

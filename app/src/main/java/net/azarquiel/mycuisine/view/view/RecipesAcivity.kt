@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +21,6 @@ import net.azarquiel.mycuisine.view.adapter.CustomAdapter
 import net.azarquiel.mycuisine.view.model.Receta
 import net.azarquiel.mycuisine.view.model.User
 import org.jetbrains.anko.*
-import kotlin.math.log
 
 
 class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {

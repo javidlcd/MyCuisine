@@ -1,18 +1,12 @@
 package net.azarquiel.mycuisine.view.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.rowrecipe.view.*
-import net.azarquiel.mycuisine.view.model.Receta
-import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.rowingredientes.view.*
-import net.azarquiel.mycuisine.view.view.NewRecipeActivity
+
 
 
 class DetailAdapter(val context: Context,
