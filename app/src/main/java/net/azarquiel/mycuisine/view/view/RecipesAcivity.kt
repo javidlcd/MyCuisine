@@ -49,7 +49,6 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         super.onCreate(savedInstanceState)
         db = FirebaseFirestore.getInstance()
         auth=FirebaseAuth.getInstance()
-        getUser()
         getUsers()
         setListener()
         setContentView(R.layout.activity_recipes_acivity)
@@ -90,29 +89,6 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         }
 
     }
-    private fun getUser() {
-        val docRef = db.collection("users").document("${auth.currentUser?.uid}")
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    parseUser(document)
-                } else {
-                    Log.e("Error", "No such document")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.e("", "get failed with ", exception)
-            }
-    }
-    private fun parseUser(document: DocumentSnapshot) {
-
-                val nombre = document["nombre"] as String
-                val img = document["img"] as Long
-                val uid =document["uid"] as String
-
-
-        user= User(uid = uid,nombre = nombre,img = img)
-        }
 
     private fun documentToList(documents: List<DocumentSnapshot>) {
         recetas.clear()
@@ -170,20 +146,26 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
             }
 
             if (snapshot != null && !snapshot.isEmpty) {
-                parseUseRecipe(snapshot.documents)
+                parseUsers(snapshot.documents)
 
             } else {
                 Log.d("", "Current data: null")
             }
         }
     }
-    private fun parseUseRecipe(documents: List<DocumentSnapshot>) {
+    private fun parseUsers(documents: List<DocumentSnapshot>) {
 
         documents.forEach { d ->
 
             val nombre = d["nombre"] as String
             val img = d["img"] as Long
             val uid = d["uid"] as String
+
+            if (uid==auth.currentUser?.uid){
+                usuarios.add(User(nombre=nombre,img = img,uid = uid))
+                user=User(nombre=nombre,img = img,uid = uid)
+
+            }
 
             usuarios.add(User(nombre=nombre,img = img,uid = uid))
         }
