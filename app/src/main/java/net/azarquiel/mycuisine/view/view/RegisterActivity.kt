@@ -14,7 +14,7 @@ import org.jetbrains.anko.*
 
 
 
-class RegisterActivity : AppCompatActivity() {
+class   RegisterActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
 
     private lateinit var auth: FirebaseAuth
@@ -28,10 +28,7 @@ class RegisterActivity : AppCompatActivity() {
         buttoncrear.setOnClickListener{crearaccount()}
         btnfleizq.setOnClickListener{profileimagedown()}
         btnfledere.setOnClickListener{profileimageup()}
-
     }
-
-
     private fun profileimageup() {
        imagecount++
         if(imagecount>12){
@@ -58,8 +55,6 @@ class RegisterActivity : AppCompatActivity() {
             12->profile_image.setImageResource(R.drawable.p12)
 
         }
-
-
     }
 
     private fun profileimagedown() {
@@ -93,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
 
     }
     private fun addData(nombre:String,uid:String?) {
-        val user: MutableMap<String, Any> = HashMap() // diccionario key value
+        val user: MutableMap<String, Any> = HashMap()
         user["uid"] = uid!!
         user["nombre"] = nombre
         user["img"]=imagecount
@@ -113,25 +108,19 @@ class RegisterActivity : AppCompatActivity() {
 
 
 
-    private fun addUser(email:String,password: String,nombre:String){
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.e(email, "Registration success")
+        private fun addUser(email:String,password: String,nombre:String){
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        Log.e(email, "Registration success")
 
-                    val uid=auth.currentUser?.uid
-                    addData(nombre,uid)
+                        val uid=auth.currentUser?.uid
+                        addData(nombre,uid)
 
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.e(email, "Registration failled")
-                    updateUI(null)
+                    } else {
+                        Log.e(email, "Registration failled")
+                        updateUI(null)
+                    }
                 }
-
-
-            }
-
-
-    }
+        }
 }

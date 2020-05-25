@@ -41,10 +41,8 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginTop="75dp"
-                android:layout_marginBottom="300dp"
+                android:layout_marginTop="150dp"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
@@ -92,20 +90,16 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginStart="87dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="80dp"
-                android:layout_marginBottom="17dp"
                 android:fontFamily="casual"
                 android:text="Lista de ingredientes"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.428"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtnombredetalle"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
             <TextView
                 android:id="@+id/txtpasosdetail"
@@ -124,6 +118,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:orientation="horizontal"

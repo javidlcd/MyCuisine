@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="2dp"
@@ -20,8 +21,8 @@
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
-            android:layout_width="91dp"
-            android:layout_height="97dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginStart="31dp"
             android:layout_marginTop="33dp"
             android:layout_marginEnd="289dp"
@@ -33,8 +34,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivReceta"
-                android:layout_width="95dp"
-                android:layout_height="104dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/p0"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="2dp"
@@ -44,33 +45,34 @@
 
         <TextView
             android:id="@+id/txtNombreRecipe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="33dp"
-            android:layout_marginEnd="194dp"
+            android:layout_width="257dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="7dp"
             android:fontFamily="casual"
             android:text="Nombre"
             android:textSize="18sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtDificultad"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/relativeLayout"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.944" />
 
         <TextView
             android:id="@+id/txtDificultad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="88dp"
-            android:layout_marginEnd="194dp"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="25dp"
             android:fontFamily="casual"
             android:text="Dificultad"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/relativeLayout"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

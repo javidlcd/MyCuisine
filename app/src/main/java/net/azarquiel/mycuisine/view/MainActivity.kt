@@ -31,31 +31,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
-        public override fun onStart() {
-            super.onStart()
-            // Check if user is signed in (non-null) and update UI accordingly.
-            var currentUser = auth.currentUser
-         updateUI(currentUser)
-        }
-
-    private fun updateUI(currentUser: FirebaseUser?) {
-        if (currentUser!=null){
-            val intent = Intent(this, RecipesAcivity::class.java)
-            intent.putExtra("id",currentUser.uid)
-            startActivity(intent)
-
-
-        }
-
-    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-
 
         db=FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
@@ -74,6 +54,22 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        var currentUser = auth.currentUser
+        updateUI(currentUser)
+    }
+
+        private fun updateUI(currentUser: FirebaseUser?) {
+            if (currentUser!=null){
+                val intent = Intent(this, RecipesAcivity::class.java)
+                intent.putExtra("id",currentUser.uid)
+                startActivity(intent)
+            }
+
+        }
     private fun contraseña(){
         alert {
             title = "Restablecer contraseña"
@@ -127,26 +123,18 @@ class MainActivity : AppCompatActivity() {
              auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
                  .addOnCompleteListener(this) { task ->
                      if (task.isSuccessful) {
-                         // Sign in success, update UI with the signed-in user's information
                          Log.d("", "signInWithEmail:success")
-
                          val user = auth.currentUser
-
                          Log.d("usuario","${user?.uid}")
                          updateUI(user)
                      } else {
-                         // If sign in fails, display a message to the user.
                          Log.w("", "signInWithEmail:failure", task.exception)
                          Toast.makeText(baseContext, "Authentication failed.",
                              Toast.LENGTH_SHORT).show()
                          updateUI(null)
                      }
-
-                     // ...
                  }
         }
-
-
     }
 
 

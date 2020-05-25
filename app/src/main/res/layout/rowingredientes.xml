@@ -9,7 +9,6 @@
     android:layout_marginTop="5dp"
     android:layout_marginEnd="2dp"
     android:layout_marginBottom="5dp"
-    android:onClick="ClickRow"
     android:orientation="vertical"
     app:cardBackgroundColor="#A0D1FF"
     app:cardCornerRadius="20dp">
