@@ -71,53 +71,53 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         rvRecetas.adapter = adapter
     }
 
-    private fun setListener() {
-        val docRef = db.collectionGroup("recetas")
-        docRef.addSnapshotListener { snapshot, e ->
-            if (e != null) {
-                Log.w("", "Listen failed.", e)
-                return@addSnapshotListener
+        private fun setListener() {
+            val docRef = db.collectionGroup("recetas")
+            docRef.addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Log.w("", "Listen failed.", e)
+                    return@addSnapshotListener
+                }
+
+                if (snapshot != null && !snapshot.isEmpty) {
+                    documentToList(snapshot.documents)
+                    adapter.setRecetas(recetas)
+
+                } else {
+                    Log.d("", "Current data: null")
+                }
             }
 
-            if (snapshot != null && !snapshot.isEmpty) {
-                documentToList(snapshot.documents)
-                adapter.setRecetas(recetas)
-
-            } else {
-                Log.d("", "Current data: null")
-            }
         }
 
-    }
-
-    private fun documentToList(documents: List<DocumentSnapshot>) {
-        recetas.clear()
-        documents.forEach { d ->
+        private fun documentToList(documents: List<DocumentSnapshot>) {
+            recetas.clear()
+            documents.forEach { d ->
 
 
-                val nombre = d["nombre"] as String
-                val img = d["img"] as String
-                val ingredientes = d["ingredientes"] as ArrayList<String>
-                val pasos = d["pasos"] as String
-                val dificultad = d["dificultad"] as String
-                val likes = d["likes"] as Long
-                val dislikes = d["dislikes"] as Long
-                val userrecipe = d["user"] as String
-                recetas.add(
-                    Receta(
-                        nombre = nombre,
-                        img = img,
-                        ingredientes = ingredientes,
-                        pasos = pasos,
-                        dificultad = dificultad,
-                        likes = likes,
-                        dislikes = dislikes,
-                        user = userrecipe
+                    val nombre = d["nombre"] as String
+                    val img = d["img"] as String
+                    val ingredientes = d["ingredientes"] as ArrayList<String>
+                    val pasos = d["pasos"] as String
+                    val dificultad = d["dificultad"] as String
+                    val likes = d["likes"] as Long
+                    val dislikes = d["dislikes"] as Long
+                    val userrecipe = d["user"] as String
+                    recetas.add(
+                        Receta(
+                            nombre = nombre,
+                            img = img,
+                            ingredientes = ingredientes,
+                            pasos = pasos,
+                            dificultad = dificultad,
+                            likes = likes,
+                            dislikes = dislikes,
+                            user = userrecipe
+                        )
                     )
-                )
-        }
+            }
 
-    }
+        }
     fun ClickRow(v: View){
         val recetapulsada = v.tag as Receta
         val intent = Intent(this, RecetaDetalle::class.java)
