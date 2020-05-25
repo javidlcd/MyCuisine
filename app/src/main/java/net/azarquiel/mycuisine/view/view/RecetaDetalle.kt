@@ -49,8 +49,6 @@ class RecetaDetalle : AppCompatActivity() {
                 btnmgs.text = receta.likes.toString()
                 voto = true
             actualizar()
-
-
             }
 
         }else if (v == 2) {

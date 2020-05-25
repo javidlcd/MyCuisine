@@ -87,14 +87,17 @@ class NewRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
         picker.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-        private fun checkcampos(){
-        if(editNombre.length() == 0||editPasos.length() == 0){
-            toast("Campos necesarios")
-        }else if(diff==0){
-            toast("Elige la dificultad de la receta")
-        }else{
-            subirReceta(editNombre.text.toString(),editPasos.text.toString())
-        }
+            private fun checkcampos(){
+            if(editNombre.length() == 0||editPasos.length() == 0){
+                toast("Campos necesarios")
+            }else if(diff==0){
+                toast("Elige la dificultad de la receta")
+            }else if(ingredientes.size==0) {
+                toast("Al menos debe haber un ingrediente")
+            }else{
+                subirReceta(editNombre.text.toString(),editPasos.text.toString())
+
+            }
 
 
     }
@@ -142,30 +145,29 @@ class NewRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
                 toast("Error al subir la receta")
             }
     }
-    private fun dialogoingredientes(){
-        alert {
-            customView {
-                verticalLayout {
-                    val etIngrediente = editText {
-                        hint = "Ingrediente y peso"
-                    }
-                    positiveButton("Aceptar") {
-                        if(etIngrediente.length()!=0)
-                       ingredientes.add(etIngrediente.text.toString())
-                    }
-                    negativeButton("Añadir otro"){
-                        if(etIngrediente.length()!=0) {
-                            ingredientes.add(etIngrediente.text.toString())
-                            dialogoingredientes()
+        private fun dialogoingredientes(){
+            alert {
+                customView {
+                    verticalLayout {
+                        val etIngrediente = editText {
+                            hint = "Ingrediente y peso"
                         }
+                        positiveButton("Aceptar") {
+                            if(etIngrediente.length()!=0)
+                           ingredientes.add(etIngrediente.text.toString())
+                        }
+                        negativeButton("Añadir otro"){
+                            if(etIngrediente.length()!=0) {
+                                ingredientes.add(etIngrediente.text.toString())
+                                dialogoingredientes()
+                            }
 
+                        }
                     }
                 }
-            }
-        }.show()
+            }.show()
+        }
 
-
-    }
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
        diff=position
     }
