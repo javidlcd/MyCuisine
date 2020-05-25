@@ -56,10 +56,7 @@ class NewRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
 
     private fun subirimg(IdImage:String) {
         val storageRef = storage.reference
-
-
         val imagenreceta = storageRef.child("images/${IdImage}.jpg")
-
         iv.isDrawingCacheEnabled = true
         iv.buildDrawingCache()
         val bitmap = (iv.drawable as BitmapDrawable).bitmap
@@ -69,10 +66,7 @@ class NewRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
 
         var uploadTask = imagenreceta.putBytes(data)
         uploadTask.addOnFailureListener {
-            // Handle unsuccessful uploads
         }.addOnSuccessListener {
-            // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
-            // ...
         }
     }
 
@@ -117,8 +111,6 @@ class NewRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
             3->difi="Dificil"
         }
         receta["dificultad"]=difi
-
-
 
         db.collection("users")
             .document("${user.currentUser?.uid}").collection("recetas").add(receta)
