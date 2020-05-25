@@ -55,8 +55,6 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         setSupportActionBar(toolbar)
         initRV()
 
-
-
         fab.setOnClickListener {
             val intent = Intent(this, NewRecipeActivity::class.java)
             startActivity(intent)
@@ -127,15 +125,9 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
             }
         }
-
                 intent.putExtra("receta", recetapulsada)
                 intent.putExtra("user",usuarioReceta)
-
-
-
-
         startActivity(intent)
-
     }
     private fun getUsers() {
         val docRef = db.collectionGroup("users")
@@ -166,12 +158,8 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 user=User(nombre=nombre,img = img,uid = uid)
 
             }
-
             usuarios.add(User(nombre=nombre,img = img,uid = uid))
         }
-
-
-
     }
 
 
@@ -187,19 +175,12 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         searchView = searchItem.actionView as SearchView
         searchView.setQueryHint("Search...")
         searchView.setOnQueryTextListener(this)
-
-
-
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         var id= item.getItemId()
         if(id==R.id.logout){
             alert("¿Estas seguro de que quieres salir de la cuenta?") {
-
                 yesButton {logout() }
                 noButton { }
             }.show()
@@ -207,8 +188,6 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
             val intent = Intent(this, Account::class.java)
             intent.putExtra("user",user)
             startActivity(intent)
-
-
         }
         return true
     }
@@ -218,6 +197,4 @@ class RecipesAcivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         startActivity(intent)
         finish()
     }
-
-
 }

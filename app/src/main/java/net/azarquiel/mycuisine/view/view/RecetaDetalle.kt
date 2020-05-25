@@ -34,19 +34,11 @@ class RecetaDetalle : AppCompatActivity() {
         usuario=intent.getSerializableExtra("user") as User
         initRV()
         inyectarInformacion()
-        btnmgs.setOnClickListener { ilike() }
-        btnnomgs.setOnClickListener { idislike() }
+        btnmgs.setOnClickListener { votar(1) }
+        btnnomgs.setOnClickListener { votar(2) }
 
     }
 
-    private fun idislike() {
-    votar(2)
-    }
-
-    private fun ilike() {
-        votar(1)
-
-    }
     private fun votar(v:Int){
         if (voto==true){
           toast("Ya has votado")
